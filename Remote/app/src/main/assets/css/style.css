@@ -6,6 +6,11 @@ body {
 }
 
 #clock {
-  font-weight: 300;
+  font-weight: 500;
   font-size: 30dp;
+}
+
+#temp {
+   font-weight: 300;
+   font-size: 30dp;
 }

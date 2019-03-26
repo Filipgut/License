@@ -7,9 +7,7 @@ function hexClock() {
   var hours = (time.getHours() % 12).toString();
   var minutes = time.getMinutes().toString();
   var seconds = time.getSeconds().toString();
-  var url_string = window.location.href
-  var url = new URL(url_string);
-  var tempVal= url.searchParams.get("temp");
+
 
 
   if (hours.length < 2) {
@@ -28,9 +26,6 @@ function hexClock() {
   var hexColorStr = '#000000';
 
   clock.textContent = clockStr;
-  tempVal = "Temperature: " + tempVal;
-  var tempVarSubStr = tempVal.substring(0, 18);
-  temp.textContent = tempVarSubStr;
   document.body.style.backgroundColor = hexColorStr;
 }
 
@@ -38,5 +33,17 @@ function dayOfWeekAsString(dayIndex) {
   return ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][dayIndex];
 }
 
+function tempClock(){
+    var url_string = window.location.href
+    var url = new URL(url_string);
+    var tempVal= url.searchParams.get("temp");
+    tempVal = "Temperature: " + tempVal;
+    var tempVarSubStr = tempVal.substring(0, 18);
+    temp.textContent = tempVarSubStr;
+}
+
+
 hexClock();
 setInterval(hexClock, 1000);
+tempClock();
+

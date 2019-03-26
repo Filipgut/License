@@ -1,3 +1,4 @@
+/*
 package com.apk.remote;
 
 import android.app.Activity;
@@ -23,38 +24,40 @@ public class MainActivity extends AppCompatActivity {
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
 
-        Thread t = new Thread() {
-            @Override
-            public void run() {
-                while (!isInterrupted()) {
-                    try {
+        final WebView webView = (WebView)findViewById(R.id.webview);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setWebChromeClient(new WebChromeClient());
+        String url = "file:///android_asset/html/index.html?temp=" + tempStr;
+        webView.loadUrl(url);
 
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
+            Thread t = new Thread() {
+                @Override
+                public void run() {
+                    while (!isInterrupted()) {
+                        try {
 
-                                tempAndroid = new GetCpuTempAndroid();
-                                Float temp = tempAndroid.getCpuTemp();
-                                tempStr = temp.toString();
-                                WebView webView = (WebView)findViewById(R.id.webview);
-                                webView.getSettings().setJavaScriptEnabled(true);
-                                webView.setWebChromeClient(new WebChromeClient());
-                                String url = "file:///android_asset/html/index.html?temp=" + tempStr;
-                                webView.loadUrl(url);
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    tempAndroid = new GetCpuTempAndroid();
+                                    Float temp = tempAndroid.getCpuTemp();
+                                    tempStr = temp.toString();
+                                    String url = "file:///android_asset/html/index.html?temp=" + tempStr;
+                                    webView.loadUrl(url);
 
-                            }
-                        });
-                        Thread.sleep(5000);  //1000ms = 1 sec
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                                }
+                            });
+                            Thread.sleep(60000);  //1000ms = 1 sec
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
-            }
-        };
+            };
 
-        t.start();
-
+            t.start();
 
 
     }
 }
+*/

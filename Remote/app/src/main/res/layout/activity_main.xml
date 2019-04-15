@@ -1,14 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="horizontal"
+    android:weightSum="2"
     tools:context=".MainActivity">
 
-    <WebView
-        android:id="@+id/webview"
-        android:layout_width="400dp"
+    <LinearLayout
+        android:id="@+id/left"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#000000"/>
-</RelativeLayout>
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:layout_weight="1.1"
+        android:background="#000000"
+        android:orientation="vertical"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:id="@+id/top_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="4">
+
+            <TextView
+                android:id="@+id/temperature"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="Temp"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@android:dimen/notification_large_icon_height" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="Time"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/pressure"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textAlignment="viewEnd"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:id="@+id/bottom_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <ImageButton
+                    android:id="@+id/brightness"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/birghtness" />
+
+                <ImageButton
+                    android:id="@+id/settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/settings" />
+
+                <ImageButton
+                    android:id="@+id/more"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/more" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/right"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        android:layout_weight="0.9"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        >
+        <LinearLayout
+            android:id="@+id/seek_layout_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+
+            <SeekBar
+                android:id="@+id/seek_bar_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:rotation="270"
+                android:max="200"
+                android:progress="50"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/seek_layout_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+            <SeekBar
+                android:id="@+id/seek_bar_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:rotation="270"
+                android:max="200"
+                android:progress="50"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/seek_layout_3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+            <SeekBar
+                android:id="@+id/seek_bar_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:rotation="270"
+                android:max="200"
+                android:progress="50"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/seek_layout_4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+            <SeekBar
+                android:id="@+id/seek_bar_4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:rotation="270"
+                android:max="200"
+                android:progress="50"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/seek_layout_5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+            <SeekBar
+                android:id="@+id/seek_bar_5"
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
+                android:rotation="270"
+                android:max="200"
+                android:progress="50"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
